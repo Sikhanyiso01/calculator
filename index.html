@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <table border="1">
@@ -11,30 +12,30 @@
         <td colspan="4"><input type="text" id="input1" value="0""></td>
       </tr>
       <tr>
-        <td onclick="digitdButtonPressed(7)">7</td>
-        <td onclick="digitdButtonPressed(8)">8</td>
-        <td onclick="digitdButtonPressed(9)">9</td>
-        <td onclick=" operatorBtnPressed('*')">x</td>
+        <td class="digitbtn" onclick="digitdButtonPressed(7)">7</td>
+        <td class="digitbtn" onclick="digitdButtonPressed(8)">8</td>
+        <td class="digitbtn" onclick="digitdButtonPressed(9)">9</td>
+        <td class="operatorBtn" onclick=" operatorBtnPressed('*')">x</td>
       </tr>
       <tr>
-        <td onclick="digitdButtonPressed(4)">4</td>
-        <td onclick="digitdButtonPressed(5)">5</td>
-        <td onclick="digitdButtonPressed(6)">6</td>
-        <td onclick=" operatorBtnPressed('-')">-</td>
+        <td class="digitbtn" onclick="digitdButtonPressed(4)">4</td>
+        <td class="digitbtn" onclick="digitdButtonPressed(5)">5</td>
+        <td class="digitbtn" onclick="digitdButtonPressed(6)">6</td>
+        <td class="operatorBtn" onclick=" operatorBtnPressed('-')">-</td>
       </tr>
       <tr>
-        <td onclick="digitdButtonPressed(1)">1</td>
-        <td onclick="digitdButtonPressed(2)">2</td>
-        <td onclick="digitdButtonPressed(3)">3</td>
-        <td onclick=" operatorBtnPressed('+')">+</td>
+        <td class="digitbtn" onclick="digitdButtonPressed(1)">1</td>
+        <td class="digitbtn" onclick="digitdButtonPressed(2)">2</td>
+        <td class="digitbtn" onclick="digitdButtonPressed(3)">3</td>
+        <td class="operatorBtn" onclick=" operatorBtnPressed('+')">+</td>
       </tr>
       <tr>
-        <td colspan="2"  onclick="digitdButtonPressed(0)">0</td>
-        <td onclick="ACbtnPressed()"">AC</td>
-        <td onclick=" operatorBtnPressed('/')">/</td>
+        <td class="digitbtn" colspan="2"  onclick="digitdButtonPressed(0)">0</td>
+        <td class="ACbtn" onclick="ACbtnPressed()"">AC</td>
+        <td class="operatorBtn" onclick=" operatorBtnPressed('/')">/</td>
       </tr>
       <tr>
-        <td colspan="4"  onclick=" equalsBtnPressed()">=</td>
+        <td class="operatorBtn" colspan="4"  onclick=" equalsBtnPressed()">=</td>
       </tr>
     </table>
 
@@ -79,14 +80,15 @@
               case '/':
                 if(value2 === 0){
                   alert("cannot divide by zero");
-                 
+                  return;
                 }else{
-                  result = num1 / num2;
+                  result = value1 / value2;
                 }
                 break;
               default:  
                 alert("Invalid operator");
-                return;   
+                break;
+
 
             }
             document.getElementById("input1").value = result;
