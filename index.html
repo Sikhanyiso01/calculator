@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <table border="1">
+      <tr>
+        <td colspan="4"><input type="text" id="input1" value="0""></td>
+      </tr>
+      <tr>
+        <td onclick="digitdButtonPressed(7)">7</td>
+        <td onclick="digitdButtonPressed(8)">8</td>
+        <td onclick="digitdButtonPressed(9)">9</td>
+        <td onclick=" operatorBtnPressed('*')">x</td>
+      </tr>
+      <tr>
+        <td onclick="digitdButtonPressed(4)">4</td>
+        <td onclick="digitdButtonPressed(5)">5</td>
+        <td onclick="digitdButtonPressed(6)">6</td>
+        <td onclick=" operatorBtnPressed('-')">-</td>
+      </tr>
+      <tr>
+        <td onclick="digitdButtonPressed(1)">1</td>
+        <td onclick="digitdButtonPressed(2)">2</td>
+        <td onclick="digitdButtonPressed(3)">3</td>
+        <td onclick=" operatorBtnPressed('+')">+</td>
+      </tr>
+      <tr>
+        <td colspan="2"  onclick="digitdButtonPressed(0)">0</td>
+        <td onclick="ACbtnPressed()"">AC</td>
+        <td onclick=" operatorBtnPressed('/')">/</td>
+      </tr>
+      <tr>
+        <td colspan="4"  onclick=" equalsBtnPressed()">=</td>
+      </tr>
+    </table>
+
+    <script>
+        var newLine = true;
+        var value1;
+        var cuurentOperator;
+      function digitdButtonPressed(button) {
+
+        if (newLine) {
+          document.getElementById("input1").value = button;
+            newLine = false;
+        }else {
+          varCurrentValue = document.getElementById("input1").value;
+        document.getElementById("input1").value =varCurrentValue + button;
+        }
+      }
+        function ACbtnPressed() {
+            document.getElementById("input1").value = "0";
+            newLine = true;
+        }
+
+        function operatorBtnPressed(operator){
+          cuurentOperator = operator;
+          value1 = parseInt( document.getElementById("input1").value);
+
+          newLine = true;
+        }
+        function equalsBtnPressed() {
+            var value2 = parseInt( document.getElementById("input1").value);
+            var result;
+            switch(cuurentOperator){
+              case '+':
+                result = value1 + value2;
+                break;
+              case '-':
+                result = value1 - value2;
+                break;
+              case '*':
+                result = value1 * value2;
+                break;
+              case '/':
+                if(value2 === 0){
+                  alert("cannot divide by zero");
+                 
+                }else{
+                  result = num1 / num2;
+                }
+                break;
+              default:  
+                alert("Invalid operator");
+                return;   
+
+            }
+            document.getElementById("input1").value = result;
+            newLine = true;
+            num1 = 0;
+           
+          }  
+    </script>
+  </body>
+</html>
